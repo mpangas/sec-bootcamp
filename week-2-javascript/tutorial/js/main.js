@@ -36,3 +36,11 @@ while(counter <= 3) {
     counter++;
 }
 console.log(counter);
+
+// Functions
+
+const toProperCase = (name) => {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+};
+
+console.log(toProperCase("september"));
