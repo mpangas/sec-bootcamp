@@ -43,3 +43,24 @@ const toProperCase = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 };
 console.log(toProperCase("september"));
+
+// Objects
+
+const myObj = { name: "Dave" };
+const anotherObj = {
+    alive: true,
+    answer: 42,
+    hobbies: ["Eat", "Sleep", "Code"],
+    beverage: {
+        morning: "Coffee",
+        afernoon: "Iced Tea"
+    },
+    action: function() {
+        return `Time for ${this.beverage.morning}`;
+    }
+}
+console.log(anotherObj.action());
+
+for(let thing in anotherObj) {
+    console.log(anotherObj[thing]);
+}
