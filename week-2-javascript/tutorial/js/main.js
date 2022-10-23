@@ -66,16 +66,18 @@ for(let thing in anotherObj) {
 }
 
 // Classes
-// class Pizza {
-//     constructor(pizzaType) {
-//         this.type = pizzaType;
-//         this.size = "medium";
-//         this._crust = "original"; // underscore makes private
-//     }
-//     bake() {
-//         console.log(`Baking a ${this.size} ${this.crust} crust ${this.type} pizza.`)
-//     }
-// }
+class Pizza {
+    crust = "original";
+    #sauce = "traditional"; // real private field
+    constructor(pizzaType) {
+        this.type = pizzaType;
+        this.size = "medium";
+        this._crust = "original"; // underscore makes "private"
+    }
+    bake() {
+        console.log(`Baking a ${this.size} ${this.crust} crust ${this.type} pizza.`)
+    }
+}
 
 // class SpecialtyPizza extends Pizza {
 //     constructor(pizzaType) {
@@ -92,9 +94,24 @@ function pizzaFactory(pizzaSize) {
     const crust = "original";
     const size = pizzaSize;
     return {
-        bake: () => console.log(`Baking a ${size} ${crust} crust pizza.`)
+        bake: () => console.log(`Baking a ${size}, ${crust} crust pizza.`)
     }
 }
 
 const myPizza = pizzaFactory("large");
 myPizza.bake();
+
+// JSON: JavaScript Object Notation
+const obj = {
+    name: "Dave",
+    hobbies: ["eat", "sleep", "code"],
+    hello: function() {
+        console.log("Hello!");
+    }
+}
+
+const sendJSON = JSON.stringify(obj);
+console.log(sendJSON);
+
+const receiveJSON = JSON.parse(sendJSON);
+console.log(receiveJSON);
