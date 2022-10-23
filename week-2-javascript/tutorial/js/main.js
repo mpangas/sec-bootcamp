@@ -64,3 +64,37 @@ console.log(anotherObj.action());
 for(let thing in anotherObj) {
     console.log(anotherObj[thing]);
 }
+
+// Classes
+// class Pizza {
+//     constructor(pizzaType) {
+//         this.type = pizzaType;
+//         this.size = "medium";
+//         this._crust = "original"; // underscore makes private
+//     }
+//     bake() {
+//         console.log(`Baking a ${this.size} ${this.crust} crust ${this.type} pizza.`)
+//     }
+// }
+
+// class SpecialtyPizza extends Pizza {
+//     constructor(pizzaType) {
+//         super(pizzaType);
+//         this.type = "The Works";
+//     }
+//     slice() {
+//         console.log(`Our ${this.type} ${this.size} pizza has 8 slices.`)
+//     }
+// }
+
+// Factory Function
+function pizzaFactory(pizzaSize) {
+    const crust = "original";
+    const size = pizzaSize;
+    return {
+        bake: () => console.log(`Baking a ${size} ${crust} crust pizza.`)
+    }
+}
+
+const myPizza = pizzaFactory("large");
+myPizza.bake();
