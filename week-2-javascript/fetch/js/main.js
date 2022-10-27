@@ -59,25 +59,58 @@ const users = fetch("https://jsonplaceholder.typicode.com/users")
     })
     .then(data => {
         data.forEach(user => {
-            console.log(user);
+            // console.log(user);
         })
     });
 
 // Async / Await
 
-const myUsers = {
-    userList: []
-}
+// Workflow function
 
-async function myCoolFunction() {
+const getAllUserEmails = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
     const jsonUserData = await response.json();
-    return jsonUserData;
+    const userEmailArray = jsonUserData.map(user => {
+        return user.email;
+    });
+    postToWebPage(userEmailArray);
 }
 
-myCoolFunction();
+const postToWebPage = (data) => {
+    //console.log(data);
+}
 
-const anotherFunc = async() => {
-    const data = await myCoolFunction();
-    console.log(data);
+getAllUserEmails();
+
+// 2nd parameter of Fetch is an object
+
+const getDadJoke = async () => {
+    const response = await fetch("https://icanhazdadjoke.com/", {
+        method: "GET",
+        headers: {
+            Accept: "application/json"
+        }
+    });
+    const jsonJokeData = await response.json();
+    console.log(jsonJokeData);
+}
+
+getDadJoke();
+
+// Posting data
+
+const jokeObject = {
+    id: "123456",
+    joke: "Hello lol."
+}
+
+const postData = async => (jokeObject) => {
+    const response = fetch("https://icanhazdadjoke.com/", {
+        method: "GET",
+        headers: {
+            Accept: "application/json"
+        }
+    });
+    const jsonJokeData = response.json();
+    console.log(jsonJokeData);
 }
