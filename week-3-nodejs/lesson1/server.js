@@ -25,3 +25,5 @@ console.log(divide(2,3));
 // console.log(path.extname(__filename));
 
 // console.log(path.parse(__filename));
+
+// 6) Missing some JS APIs like fetch
