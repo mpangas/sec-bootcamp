@@ -6,9 +6,9 @@ const fsPromises = require('fs').promises;
 const logEvents = require('./logEvents');
 const EventEmitter = require('events');
 class Emitter extends EventEmitter { };
-// initialize object 
+// initialize object
 const myEmitter = new Emitter();
-myEmitter.on('log', (msg, fileName) => logEvents(msg, fileName));
+myEmitter.on('log', (msg, fileName) => logEvents(msg, fileName));;
 const PORT = process.env.PORT || 3500;
 
 const serveFile = async (filePath, contentType, response) => {
@@ -20,7 +20,7 @@ const serveFile = async (filePath, contentType, response) => {
         const data = contentType === 'application/json'
             ? JSON.parse(rawData) : rawData;
         response.writeHead(
-            filePath.includes('404.html') ? 404 : 200,
+            filePath.includes('404.html') ? 404 : 200, 
             { 'Content-Type': contentType }
         );
         response.end(
@@ -37,9 +37,7 @@ const serveFile = async (filePath, contentType, response) => {
 const server = http.createServer((req, res) => {
     console.log(req.url, req.method);
     myEmitter.emit('log', `${req.url}\t${req.method}`, 'reqLog.txt');
-
     const extension = path.extname(req.url);
-
     let contentType;
 
     switch (extension) {
@@ -73,9 +71,8 @@ const server = http.createServer((req, res) => {
                 : contentType === 'text/html'
                     ? path.join(__dirname, 'views', req.url)
                     : path.join(__dirname, req.url);
-
-    // makes .html extension not required in the browser
-    if (!extension && req.url.slice(-1) !== '/') filePath += '.html';
+    // Makes .html extension not required in the browser
+    if (!extension && req.url.slice(-1 !== '/')) filePath += '.html';
 
     const fileExists = fs.existsSync(filePath);
 
@@ -95,5 +92,5 @@ const server = http.createServer((req, res) => {
                 serveFile(path.join(__dirname, 'views', '404.html'), 'text/html', res);
         }
     }
-});
+})
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
