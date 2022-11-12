@@ -51,3 +51,8 @@
 20221106	17:59:34	409cebe4-5365-4118-bd19-6b789927cb0e	GET	undefined	/css/style.css
 20221106	17:59:34	c0d89761-19ca-455b-9e8b-cf50c36fac18	GET	undefined	/css/style.css
 20221106	18:07:44	2b2e1063-6c27-4d09-8aaa-bad75007dc62	GET	undefined	/employees
+20221112	00:11:04	f8dc764d-0716-43dd-b09c-c64d5f34b3c7	GET	undefined	/
+20221112	00:11:05	e92a6840-df28-4e39-a21f-a4fc6e88db56	GET	undefined	/css/style.css
+20221112	00:11:05	b245fe6c-172f-4daf-a84e-3f75f8373711	GET	undefined	/favicon.ico
+20221112	00:11:59	e1b2e1b0-f605-4719-9818-5d973ca67ac9	POST	undefined	/register
+20221112	00:12:48	80bda7cc-aee4-4645-98c1-5cf1b67d8525	POST	undefined	/register
